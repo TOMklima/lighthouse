@@ -73,9 +73,6 @@ async function inlineFs(code, filepath) {
       continue;
     }
 
-    // For now, ignore try/catch and other conditional expressions.
-    // if (parsed.type === 'ConditionalExpression') continue;
-
     // If root of expression isn't the fs call, descend down chained methods on
     // the result (e.g. `fs.readdirSync().map(...)`) until reaching the fs call.
     for (;;) {
