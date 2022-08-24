@@ -7,7 +7,7 @@
 
 /* global document */
 
-const Gatherer = require('lighthouse').Gatherer;
+import {Gatherer} from 'lighthouse';
 
 class CustomGatherer extends Gatherer {
   meta = {
@@ -38,4 +38,4 @@ class CustomGatherer extends Gatherer {
   }
 }
 
-module.exports = CustomGatherer;
+export default CustomGatherer;

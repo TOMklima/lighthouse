@@ -5,7 +5,7 @@
  */
 'use strict';
 
-module.exports = {
+export default {
   artifacts: [
     {id: 'CustomGatherer', gatherer: 'custom-gatherer'},
   ],
@@ -19,8 +19,21 @@ module.exports = {
     },
   ],
 
-  audits: [
-    'custom-audit',
+  navigations: [
+    {
+      id: 'default',
+      artifacts: [
+        'CustomGatherer',
+      ],
+    },
+  ],
+    {
+      id: 'default',
+      artifacts: [
+        'CustomGatherer',
+      ],
+    },
+  ],
   ],
 
   categories: {
