@@ -19,23 +19,6 @@ export default {
     },
   ],
 
-  navigations: [
-    {
-      id: 'default',
-      artifacts: [
-        'CustomGatherer',
-      ],
-    },
-  ],
-    {
-      id: 'default',
-      artifacts: [
-        'CustomGatherer',
-      ],
-    },
-  ],
-  ],
-
   categories: {
     mysite: {
       title: 'My custom audit',
