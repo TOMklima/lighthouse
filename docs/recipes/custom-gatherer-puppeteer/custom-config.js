@@ -19,6 +19,10 @@ export default {
     },
   ],
 
+  audits: [
+    'custom-audit',
+  ],
+
   categories: {
     mysite: {
       title: 'My custom audit',
