@@ -13,7 +13,7 @@ import * as td from 'testdouble';
 
 // import Runner from '../runner.js';
 // import {GatherRunner} from '../legacy/gather/gather-runner.js';
-import {fakeDriver as driverMock} from './gather/fake-driver.js';
+import {fakeDriver as driverMock} from './legacy/gather/fake-driver.js';
 // import {Config} from '../legacy/config/config.js';
 import {Audit} from '../audits/audit.js';
 import {Gatherer} from '../gather/gatherers/gatherer.js';
