@@ -9,12 +9,12 @@ import {strict as assert} from 'assert';
 import jestMock from 'jest-mock';
 
 import {Gatherer} from '../../gather/gatherers/gatherer.js';
-// import GathererRunner_ from '../../gather/gather-runner.js';
-// import {Config} from '../../config/config.js';
+// import GathererRunner_ from '../../legacy/gather/gather-runner.js';
+// import {Config} from '../../legacy/config/config.js';
 import {LighthouseError} from '../../lib/lh-error.js';
 import {networkRecordsToDevtoolsLog} from '../network-records-to-devtools-log.js';
-// import {Driver} from '../../gather/driver.js';
-import {Connection} from '../../gather/connections/connection.js';
+// import {Driver} from '../../legacy/gather/driver.js';
+import {Connection} from '../../legacy/gather/connections/connection.js';
 import {createMockSendCommandFn, createMockOnceFn} from './mock-commands.js';
 import {
   makeMocksForGatherRunner,
@@ -52,21 +52,21 @@ function createTypeHackedGatherRunner() {
 // Some imports needs to be done dynamically, so that their dependencies will be mocked.
 // See: https://jestjs.io/docs/ecmascript-modules#differences-between-esm-and-commonjs
 //      https://github.com/facebook/jest/issues/10025
-/** @typedef {import('../../gather/driver.js').Driver} Driver */
-/** @type {typeof import('../../gather/driver.js').Driver} */
+/** @typedef {import('../../legacy/gather/driver.js').Driver} Driver */
+/** @type {typeof import('../../legacy/gather/driver.js').Driver} */
 let Driver;
-/** @type {typeof import('../../gather/gather-runner.js').GatherRunner} */
+/** @type {typeof import('../../legacy/gather/gather-runner.js').GatherRunner} */
 let GatherRunner_;
-/** @typedef {import('../../config/config.js').Config} Config */
-/** @type {typeof import('../../config/config.js').Config} */
+/** @typedef {import('../../legacy/config/config.js').Config} Config */
+/** @type {typeof import('../../legacy/config/config.js').Config} */
 let Config;
 
 /** @type {ReturnType<createTypeHackedGatherRunner>} */
 let GatherRunner;
 before(async () => {
-  Driver = (await import('../../gather/driver.js')).Driver;
-  GatherRunner_ = (await import('../../gather/gather-runner.js')).GatherRunner;
-  Config = (await import('../../config/config.js')).Config;
+  Driver = (await import('../../legacy/gather/driver.js')).Driver;
+  GatherRunner_ = (await import('../../legacy/gather/gather-runner.js')).GatherRunner;
+  Config = (await import('../../legacy/config/config.js')).Config;
   assertNoSameOriginServiceWorkerClientsMock =
     jestMock.spyOn(GatherRunner_, 'assertNoSameOriginServiceWorkerClients');
   GatherRunner = createTypeHackedGatherRunner();
@@ -103,7 +103,7 @@ class TestGathererNoArtifact extends Gatherer {
   afterPass() {}
 }
 
-/** @type {import('../../gather/driver.js').Driver} */
+/** @type {import('../../legacy/gather/driver.js').Driver} */
 let driver;
 /** @type {Connection & {sendCommand: ReturnType<typeof createMockSendCommandFn>}} */
 let connectionStub;

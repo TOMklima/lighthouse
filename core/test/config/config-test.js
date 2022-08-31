@@ -10,8 +10,8 @@ import {createRequire} from 'module';
 
 import log from 'lighthouse-logger';
 
-import {Config} from '../../config/config.js';
-import legacyDefaultConfig from '../../config/legacy-default-config.js';
+import {Config} from '../../legacy/config/config.js';
+import legacyDefaultConfig from '../../legacy/config/legacy-default-config.js';
 import * as constants from '../../config/constants.js';
 import {Gatherer} from '../../gather/gatherers/gatherer.js';
 import {Audit} from '../../audits/audit.js';
@@ -361,7 +361,7 @@ describe('Config', () => {
   });
 
   it('throws on a non-absolute config path', async () => {
-    const configPath = '../../config/legacy-default-config.js';
+    const configPath = '../../legacy/config/legacy-default-config.js';
 
     await assert.rejects(Config.fromJson({
       audits: [],

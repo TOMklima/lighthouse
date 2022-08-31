@@ -6,8 +6,8 @@
 'use strict';
 
 import isDeepEqual from 'lodash/isEqual.js';
-import {Driver} from './gather/driver.js';
-import {GatherRunner} from './gather/gather-runner.js';
+import {Driver} from './legacy/gather/driver.js';
+import {GatherRunner} from './legacy/gather/gather-runner.js';
 import {ReportScoring} from './scoring.js';
 import {Audit} from './audits/audit.js';
 import log from 'lighthouse-logger';
@@ -24,7 +24,7 @@ import {getModuleDirectory} from '../esm-utils.js';
 
 const moduleDir = getModuleDirectory(import.meta);
 
-/** @typedef {import('./gather/connections/connection.js').Connection} Connection */
+/** @typedef {import('./legacy/gather/connections/connection.js').Connection} Connection */
 /** @typedef {import('./lib/arbitrary-equality-map.js').ArbitraryEqualityMap} ArbitraryEqualityMap */
 /** @typedef {LH.Config.Config} Config */
 
