@@ -66,7 +66,7 @@ const testsToIsolate = new Set([
   // grep -lRE '^timers\.useFakeTimers' --include='*-test.*' --exclude-dir=node_modules
   'flow-report/test/common-test.tsx',
   'core/test/fraggle-rock/gather/session-test.js',
-  'core/test/gather/legacy/driver-test.js',
+  'core/test/legacy/gather/driver-test.js',
   'core/test/gather/driver/execution-context-test.js',
   'core/test/gather/driver/navigation-test.js',
   'core/test/gather/driver/wait-for-condition-test.js',
