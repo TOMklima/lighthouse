@@ -195,6 +195,13 @@ async function runSmokeTest(smokeTestDefn, testOptions) {
         ...await lighthouseRunner(requestedUrl, configJson, {isDebug, useLegacyNavigation}),
         networkRequests: takeNetworkRequestUrls ? takeNetworkRequestUrls() : undefined,
       };
+
+      if (!result || !result.lhr?.audits || !result.artifacts) {
+        // Don't try again–something went really wrong! ex: the config could not be resolved
+        i = retries + 1;
+        throw new Error('lighthouse runner returned a bad result. got lhr:\n' +
+          JSON.stringify(result.lhr, null, 2));
+      }
     } catch (e) {
       // Clear the network requests so that when we retry, we don't see duplicates.
       if (takeNetworkRequestUrls) takeNetworkRequestUrls();
