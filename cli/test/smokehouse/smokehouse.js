@@ -196,9 +196,8 @@ async function runSmokeTest(smokeTestDefn, testOptions) {
         networkRequests: takeNetworkRequestUrls ? takeNetworkRequestUrls() : undefined,
       };
 
-      if (!result || !result.lhr?.audits || !result.artifacts) {
-        // Don't try again–something went really wrong! ex: the config could not be resolved
-        i = retries + 1;
+      if (!result.lhr?.audits || !result.artifacts) {
+        // Something went really wrong and the runner didn't catch it.
         throw new Error('lighthouse runner returned a bad result. got lhr:\n' +
           JSON.stringify(result.lhr, null, 2));
       }
