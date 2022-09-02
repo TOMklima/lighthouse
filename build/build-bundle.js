@@ -30,8 +30,10 @@ const require = createRequire(import.meta.url);
 /**
  * The git tag for the current HEAD (if HEAD is itself a tag),
  * otherwise a combination of latest tag + #commits since + sha.
+ * Note: can't do this in CI because it is a shallow checkout.
  */
-const GIT_READABLE_REF = execSync('git describe --tags HEAD').toString().trim();
+const GIT_READABLE_REF =
+  execSync(process.env.CI ? 'git rev-parse HEAD' : 'git describe').toString().trim();
 
 // HACK: manually include the lighthouse-plugin-publisher-ads audits.
 /** @type {Array<string>} */
