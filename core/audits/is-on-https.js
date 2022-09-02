@@ -7,7 +7,7 @@
 import {Audit} from './audit.js';
 import URL from '../lib/url-shim.js';
 import {NetworkRequest} from '../lib/network-request.js';
-import NetworkRecords from '../computed/network-records.js';
+import {NetworkRecords} from '../computed/network-records.js';
 import * as i18n from '../lib/i18n/i18n.js';
 
 const UIStrings = {

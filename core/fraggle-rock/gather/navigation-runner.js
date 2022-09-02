@@ -23,7 +23,7 @@ import URL from '../../lib/url-shim.js';
 import {getPageLoadError} from '../../lib/navigation-error.js';
 import Trace from '../../gather/gatherers/trace.js';
 import DevtoolsLog from '../../gather/gatherers/devtools-log.js';
-import NetworkRecords from '../../computed/network-records.js';
+import {NetworkRecords} from '../../computed/network-records.js';
 
 /**
  * @typedef NavigationContext
